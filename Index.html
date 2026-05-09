@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HistoQuiz Pro - MUST Dentistry</title>
+<style>
+:root{--bg:#0a0e1a;--card:rgba(15,23,42,.9);--card2:rgba(30,41,59,.6);--text:#f1f5f9;--sub:#94a3b8;--pri:#6366f1;--pri2:#a855f7;--ok:#22c55e;--no:#ef4444;--brd:rgba(99,102,241,.15)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
+.dna-bg{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;overflow:hidden}
+.dna-strand{position:absolute;width:2px;height:100%;left:8%;top:0}
+.dna-strand2{left:92%}
+.dna-dot{position:absolute;width:6px;height:6px;border-radius:50%;background:rgba(99,102,241,.15);animation:dm 8s ease-in-out infinite}
+.dna-dot2{background:rgba(168,85,247,.12)}
+@keyframes dm{0%,100%{transform:translateX(0)}50%{transform:translateX(25px)}}
+.particles{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0}
+.particle{position:absolute;border-radius:50%;opacity:.12;animation:dr linear infinite}
+.p1{width:280px;height:280px;background:radial-gradient(circle,rgba(99,102,241,.25),transparent 70%);top:10%;left:-5%;animation-duration:25s}
+.p2{width:200px;height:200px;background:radial-gradient(circle,rgba(168,85,247,.2),transparent 70%);top:60%;right:-3%;animation-duration:20s}
+.p3{width:220px;height:220px;background:radial-gradient(circle,rgba(34,197,94,.15),transparent 70%);bottom:5%;left:30%;animation-duration:30s}
+@keyframes dr{0%{transform:translate(0,0) scale(1)}25%{transform:translate(30px,-40px) scale(1.1)}50%{transform:translate(-20px,30px) scale(.9)}75%{transform:translate(40px,20px) scale(1.05)}100%{transform:translate(0,0) scale(1)}}
+.box{max-width:680px;margin:0 auto;padding:12px;position:relative;z-index:1}
+.logos-bar{display:flex;justify-content:center;align-items:center;gap:16px;padding:8px 16px;margin-bottom:10px}
+.uni-logo{width:48px;height:48px;border-radius:50%;object-fit:contain;background:#fff;padding:3px;border:2px solid rgba(99,102,241,.2);box-shadow:0 0 15px rgba(99,102,241,.1);transition:.3s}
+.uni-logo:hover{transform:scale(1.1)}
+.logos-text{text-align:center}
+.logos-text h3{font-size:.7rem;font-weight:700;background:linear-gradient(135deg,#818cf8,#c084fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.logos-text p{font-size:.55rem;color:var(--sub)}
+.hdr{display:flex;justify-content:space-between;align-items:center;padding:10px 16px;background:var(--card);backdrop-filter:blur(20px);border-radius:16px;border:1px solid var(--brd);margin-bottom:14px}
+.logo{display:flex;align-items:center;gap:8px}
+.logo-i{width:36px;height:36px;background:linear-gradient(135deg,var(--pri),var(--pri2));border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;box-shadow:0 0 20px rgba(99,102,241,.3)}
+.logo span{font-size:1.1rem;font-weight:800;background:linear-gradient(135deg,#818cf8,#c084fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hdr-btns{display:flex;gap:5px}
+.hb{width:38px;height:38px;border-radius:10px;border:1px solid var(--brd);background:var(--card2);color:var(--text);cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:.3s;backdrop-filter:blur(10px)}
+.hb:hover{border-color:var(--pri);box-shadow:0 0 15px rgba(99,102,241,.08)}
+.hb.on{background:var(--pri);color:#fff}
+.home{background:var(--card);backdrop-filter:blur(20px);border-radius:24px;padding:36px 24px;border:1px solid var(--brd);text-align:center;position:relative;overflow:hidden;animation:fi .5s ease}
+.home::before{content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:300px;height:300px;background:radial-gradient(circle,rgba(99,102,241,.1),transparent 70%);pointer-events:none}
+.home-icon{font-size:3.5rem;margin-bottom:16px;display:inline-block;animation:pu 3s ease-in-out infinite}
+@keyframes pu{0%,100%{transform:scale(1) translateY(0)}50%{transform:scale(1.05) translateY(-6px)}}
+.home h2{font-size:1.5rem;font-weight:800;margin-bottom:6px}
+.home .sub{background:linear-gradient(135deg,var(--pri),var(--pri2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:700;font-size:.9rem;margin-bottom:16px}
+.name-input{width:100%;max-width:300px;margin:0 auto 16px;padding:12px 16px;border-radius:12px;border:2px solid var(--brd);background:var(--card2);color:var(--text);font-size:.9rem;font-weight:500;text-align:center;outline:none;transition:.3s}
+.name-input::placeholder{color:var(--sub)}
+.name-input:focus{border-color:var(--pri);box-shadow:0 0 20px rgba(99,102,241,.15)}
+.name-err{color:var(--no);font-size:.75rem;margin-bottom:8px;display:none}
+.feats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:20px;text-align:left}
+.feat{display:flex;align-items:center;gap:7px;padding:9px 10px;background:rgba(99,102,241,.05);border:1px solid rgba(99,102,241,.08);border-radius:11px;font-size:.75rem;font-weight:500}
+.sbtn{padding:15px 46px;border:none;border-radius:16px;background:linear-gradient(135deg,var(--pri),var(--pri2));color:#fff;font-size:1.05rem;font-weight:700;cursor:pointer;transition:.3s;box-shadow:0 4px 20px rgba(99,102,241,.3)}
+.sbtn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(99,102,241,.4)}
+.lb-section{margin-top:20px;text-align:left}
+.lb-section h3{font-size:.85rem;font-weight:700;margin-bottom:8px;color:var(--sub)}
+.lb-item{display:flex;align-items:center;gap:10px;padding:8px 12px;background:rgba(99,102,241,.04);border:1px solid rgba(99,102,241,.08);border-radius:10px;margin-bottom:5px;font-size:.78rem}
+.lb-rank{width:24px;height:24px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.7rem;flex-shrink:0}
+.lb-rank.g{background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff}
+.lb-rank.s{background:linear-gradient(135deg,#94a3b8,#64748b);color:#fff}
+.lb-rank.b{background:linear-gradient(135deg,#b45309,#92400e);color:#fff}
+.lb-rank.x{background:rgba(99,102,241,.1);color:var(--sub)}
+.lb-name{flex:1}.lb-score{font-weight:700;color:#818cf8}
+.lb-empty{color:var(--sub);font-size:.75rem;text-align:center;padding:12px;font-style:italic}
+.pi{display:flex;justify-content:space-between;font-size:.78rem;color:var(--sub);margin-bottom:5px;font-weight:500}
+.pb{height:5px;background:rgba(99,102,241,.1);border-radius:3px;overflow:hidden;margin-bottom:10px}
+.pf{height:100%;background:linear-gradient(90deg,var(--pri),var(--pri2));border-radius:3px;transition:width .5s;box-shadow:0 0 10px rgba(99,102,241,.3)}
+.sr{display:flex;gap:6px;margin-bottom:10px}
+.sc{flex:1;background:var(--card);backdrop-filter:blur(10px);border:1px solid var(--brd);border-radius:12px;padding:10px 6px;text-align:center}
+.sc .n{font-size:1.3rem;font-weight:800}
+.sc .l{font-size:.58rem;color:var(--sub);text-transform:uppercase;letter-spacing:.5px;font-weight:600;margin-top:1px}
+.blu{color:#818cf8}.grn{color:var(--ok)}.rd{color:var(--no)}
+.player-bar{display:flex;align-items:center;gap:8px;padding:6px 12px;background:rgba(99,102,241,.06);border-radius:10px;margin-bottom:10px;font-size:.78rem}
+.player-bar span{color:#818cf8;font-weight:700}
+.qc{background:var(--card);backdrop-filter:blur(20px);border-radius:20px;padding:18px;border:1px solid var(--brd);margin-bottom:14px}
+.si{animation:si .45s ease}
+.so{animation:so .3s ease}
+@keyframes si{from{opacity:0;transform:translateX(60px)}to{opacity:1;transform:translateX(0)}}
+@keyframes so{from{opacity:1;transform:translateX(0)}to{opacity:0;transform:translateX(-60px)}}
+@keyframes fi{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.badge{display:inline-block;padding:4px 12px;background:linear-gradient(135deg,var(--pri),var(--pri2));color:#fff;border-radius:20px;font-size:.63rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
+.qt{font-size:1.02rem;font-weight:700;margin-bottom:14px}
+.ib{position:relative;width:100%;border-radius:16px;overflow:hidden;margin-bottom:14px;background:#080c16;border:1px solid var(--brd)}
+.ib img{width:100%;min-height:220px;max-height:480px;object-fit:contain;display:block;padding:4px}
+.text-blur{position:absolute;top:0;left:0;right:0;height:10%;backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);background:rgba(10,14,26,.3);z-index:2;pointer-events:none;transition:all .6s ease}
+.text-blur.off{backdrop-filter:none;-webkit-backdrop-filter:none;background:transparent}
+.ibadge{position:absolute;bottom:6px;right:6px;background:rgba(10,14,26,.75);color:#fff;padding:4px 10px;border-radius:8px;font-size:.65rem;z-index:3;font-weight:600;transition:.3s;backdrop-filter:blur(8px);border:1px solid rgba(99,102,241,.12)}
+.opts{display:grid;gap:7px}
+.ob{padding:13px 14px;border:2px solid var(--brd);border-radius:14px;background:var(--card2);backdrop-filter:blur(10px);color:var(--text);font-size:.83rem;cursor:pointer;text-align:left;transition:.25s;display:flex;align-items:center;gap:10px;font-weight:500;position:relative;overflow:hidden}
+.ob::before{content:'';position:absolute;top:0;left:0;width:0;height:100%;background:linear-gradient(90deg,rgba(99,102,241,.06),transparent);transition:width .3s}
+.ob:hover:not(:disabled)::before{width:100%}
+.ob:hover:not(:disabled){border-color:var(--pri);transform:translateX(5px)}
+.ob:disabled{cursor:default}
+.ob.ok{border-color:var(--ok);background:rgba(34,197,94,.1);animation:pop .4s;box-shadow:0 0 25px rgba(34,197,94,.2),inset 0 0 15px rgba(34,197,94,.05)}
+.ob.no{border-color:var(--no);background:rgba(239,68,68,.1);animation:shk .4s}
+@keyframes pop{0%{transform:scale(1)}50%{transform:scale(1.02)}100%{transform:scale(1)}}
+@keyframes shk{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.ol{width:30px;height:30px;border-radius:9px;background:rgba(99,102,241,.12);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.73rem;flex-shrink:0;transition:.3s}
+.ok .ol{background:var(--ok);color:#fff;transform:scale(1.1);box-shadow:0 0 12px rgba(34,197,94,.3)}
+.no .ol{background:var(--no);color:#fff}
+.fb{margin-top:14px;padding:14px;border-radius:14px;border:1px solid var(--brd);animation:fi .3s;backdrop-filter:blur(10px)}
+.fb.fok{background:rgba(34,197,94,.06);border-color:rgba(34,197,94,.25)}
+.fb.fno{background:rgba(239,68,68,.06);border-color:rgba(239,68,68,.25)}
+.fb h4{margin-bottom:4px;font-size:.95rem}
+.fb p{font-size:.76rem;color:var(--sub);line-height:1.55}
+.fb .al{color:var(--text);font-weight:700;font-size:.83rem}
+.nbtn{width:100%;padding:14px;border:none;border-radius:14px;background:linear-gradient(135deg,var(--pri),var(--pri2));color:#fff;font-size:.92rem;font-weight:700;cursor:pointer;margin-top:12px;transition:.3s;box-shadow:0 4px 15px rgba(99,102,241,.2)}
+.nbtn:hover{transform:translateY(-2px)}
+.rc{background:var(--card);backdrop-filter:blur(20px);border-radius:24px;padding:28px 20px;border:1px solid var(--brd);text-align:center;margin-bottom:14px;position:relative;overflow:hidden;animation:fi .5s}
+.rc h2{font-size:1.3rem;margin-bottom:14px;font-weight:800}
+.bs{font-size:3.2rem;font-weight:900;background:linear-gradient(135deg,#818cf8,#c084fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1}
+.rg{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:18px 0}
+.rs{padding:14px;border-radius:14px;border:1px solid var(--brd);background:rgba(99,102,241,.03)}
+.rs .rn{font-size:1.3rem;font-weight:800}
+.rs .rl{font-size:.6rem;color:var(--sub);text-transform:uppercase;letter-spacing:.5px;font-weight:600}
+.bg{display:grid;gap:7px;margin-bottom:14px}
+.wab{padding:12px;border:none;border-radius:13px;background:linear-gradient(135deg,#22c55e,#16a34a);color:#fff;font-size:.85rem;font-weight:700;cursor:pointer;transition:.2s}
+.wab:hover{transform:translateY(-1px)}
+.shb{padding:12px;border:none;border-radius:13px;background:linear-gradient(135deg,var(--pri),var(--pri2));color:#fff;font-size:.85rem;font-weight:700;cursor:pointer;transition:.2s}
+.fsb{padding:12px;border:none;border-radius:13px;background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff;font-size:.85rem;font-weight:700;cursor:pointer;transition:.2s}
+.reb{padding:12px;border:2px solid var(--pri);border-radius:13px;background:transparent;color:#818cf8;font-size:.85rem;font-weight:700;cursor:pointer;transition:.2s}
+.reb:hover{background:var(--pri);color:#fff}
+.rvs{margin-top:16px}.rvs h3{font-size:.95rem;margin-bottom:10px;font-weight:700}
+.ri{background:var(--card);backdrop-filter:blur(10px);border:1px solid var(--brd);border-radius:14px;padding:14px;margin-bottom:10px}
+.ri.rok{border-left:4px solid var(--ok)}.ri.rno{border-left:4px solid var(--no)}
+.ri img{width:100%;max-height:180px;object-fit:contain;border-radius:10px;margin:6px 0}
+.ri p{font-size:.75rem;color:var(--sub);margin:3px 0;line-height:1.5}
+.hide{display:none!important}
+.conf{position:fixed;top:-10px;z-index:999;pointer-events:none;animation:cf 3s linear forwards}
+@keyframes cf{0%{transform:translateY(0) rotate(0);opacity:1}100%{transform:translateY(100vh) rotate(720deg);opacity:0}}
+.emoji-rain{position:fixed;top:-40px;z-index:999;pointer-events:none;font-size:1.8rem;animation:er 4s linear forwards}
+@keyframes er{0%{transform:translateY(0);opacity:1}100%{transform:translateY(110vh);opacity:0}}
+.timer{font-family:monospace;font-size:.78rem;color:var(--sub);font-weight:600;background:rgba(99,102,241,.08);padding:2px 8px;border-radius:6px}
+.streak-badge{display:inline-block;padding:3px 8px;background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff;border-radius:8px;font-size:.65rem;font-weight:700;margin-left:6px;animation:pop .3s}
+</style>
+</head>
+<body>
+<div class="dna-bg"><div class="dna-strand" id="ds1"></div><div class="dna-strand dna-strand2" id="ds2"></div></div>
+<div class="particles"><div class="particle p1"></div><div class="particle p2"></div><div class="particle p3"></div></div>
+<div class="box">
+<div class="logos-bar">
+<img class="uni-logo" src="https://raw.githubusercontent.com/KarimMust/histoquiz/main/Logo2.png" alt="MUST">
+<div class="logos-text"><h3>MUST University</h3><p>College of Oral & Dental Surgery</p></div>
+<img class="uni-logo" src="https://raw.githubusercontent.com/KarimMust/histoquiz/main/Logo1.png" alt="Dentistry">
+</div>
+<div class="hdr">
+<div class="logo"><div class="logo-i">🔬</div><span>HistoQuiz Pro</span></div>
+<div class="hdr-btns">
+<button class="hb" onclick="tt()" id="tmb">⏱</button>
+<button class="hb" onclick="fs()">⛶</button>
+<button class="hb" onclick="td()">🎨</button>
+</div>
+</div>
+<div id="H">
+<div class="home">
+<div class="home-icon">🧬</div>
+<h2>Histology Practical Quiz</h2>
+<div class="sub">MUST - Dentistry Department</div>
+<input type="text" class="name-input" id="nameIn" placeholder="✏️ Enter your name to start..." maxlength="20">
+<div class="name-err" id="nameErr">⚠️ Please enter your name first!</div>
+<div class="feats">
+<div class="feat">🔬 68 Slides</div>
+<div class="feat">🎯 MCQ Format</div>
+<div class="feat">⚡ Instant Feedback</div>
+<div class="feat">📊 Score + Review</div>
+<div class="feat">🔍 Blurred Labels</div>
+<div class="feat">🏆 Leaderboard</div>
+</div>
+<button class="sbtn" onclick="go()">🚀 Start Quiz</button>
+<div class="lb-section"><h3>🏆 Leaderboard — Top 5</h3><div id="lbList"></div></div>
+</div>
+</div>
+<div id="G" class="hide">
+<div class="pi"><span>Q <span id="qn">1</span>/68</span><span><span class="timer" id="tm"></span><span id="stk"></span></span></div>
+<div class="pb"><div class="pf" id="pf"></div></div>
+<div class="player-bar">👤 <span id="pName">Player</span></div>
+<div class="sr">
+<div class="sc"><div class="n blu" id="s1">0</div><div class="l">Score</div></div>
+<div class="sc"><div class="n grn" id="s2">0</div><div class="l">Correct</div></div>
+<div class="sc"><div class="n rd" id="s3">0</div><div class="l">Wrong</div></div>
+</div>
+<div class="qc" id="QC">
+<div class="badge">🔍 Identify</div>
+<div class="qt">What is this tissue / cell?</div>
+<div class="ib"><img id="qi" src=""><div class="text-blur" id="tb1"></div><div class="ibadge" id="ibg">🔍 Identify</div></div>
+<div class="opts" id="op"></div>
+<div id="fb" class="hide"></div>
+<button class="nbtn hide" id="nb" onclick="nx()">Next Question →</button>
+</div>
+</div>
+<div id="R" class="hide">
+<div class="rc">
+<h2>🎉 Quiz Complete!</h2>
+<div style="font-size:.85rem;color:var(--sub);margin-bottom:8px">Player: <strong style="color:#818cf8" id="rName">—</strong></div>
+<div class="bs" id="fsc">0%</div>
+<div class="rg">
+<div class="rs"><div class="rn" id="r1">0</div><div class="rl">Total</div></div>
+<div class="rs"><div class="rn grn" id="r2">0</div><div class="rl">Correct</div></div>
+<div class="rs"><div class="rn rd" id="r3">0</div><div class="rl">Wrong</div></div>
+</div>
+<div id="ms" style="font-size:1.1rem;font-weight:800;margin-top:8px"></div>
+</div>
+<div class="bg">
+<button class="wab" onclick="sw()">📱 Share WhatsApp</button>
+<button class="shb" onclick="ss()">📤 Share Results</button>
+<button class="fsb" onclick="fs()">⛶ Fullscreen</button>
+<button class="reb" onclick="re()">🔄 Try Again</button>
+</div>
+<div class="lb-section"><h3>🏆 Leaderboard</h3><div id="lbList2"></div></div>
+<div class="rvs"><h3>📝 Review All Questions</h3><div id="rv"></div></div>
+</div>
+</div><script>
+var U='https://raw.githubusercontent.com/KarimMust/histoquiz/main/';
+var DA=[
+{i:'Img1.jpg',l:'Blood film small lymphocyte',e:'Small round cell, dense dark nucleus, thin rim of basophilic cytoplasm. Smallest WBC.'},
+{i:'Img2.jpg',l:'Blood film large lymphocyte',e:'Larger cell, more abundant pale blue cytoplasm, less condensed chromatin.'},
+{i:'Img3.jpg',l:'Blood film small & large lymphocytes',e:'Comparison: small has minimal cytoplasm + dense nucleus, large has more cytoplasm.'},
+{i:'Img4.jpg',l:'Blood film monocyte',e:'Largest WBC. Kidney-shaped nucleus, abundant pale blue-grey cytoplasm. Precursor of macrophages.'},
+{i:'Img5.jpg',l:'Blood film leucocytes',e:'Mixed WBCs: neutrophils, eosinophils, lymphocytes, monocytes among RBCs.'},
+{i:'Img6.jpg',l:'TS Skeletal Muscle',e:'Transverse section: polygonal fibers, peripheral nuclei, grouped in fascicles by perimysium.'},
+{i:'Img7.jpg',l:'LS Skeletal Muscle',e:'Longitudinal section: parallel fibers with cross-striations and peripheral multinucleated nuclei.'},
+{i:'Img8.jpg',l:'Myotendinous junction',e:'Transition zone where skeletal muscle fibers attach to dense regular CT (tendon).'},
+{i:'Img9.jpg',l:'Cardiac muscle',e:'Branching fibers, central nuclei, intercalated discs, cross-striations.'},
+{i:'Img10.jpg',l:'Smooth muscle',e:'Spindle-shaped cells, central elongated nucleus, no striations, arranged in sheets.'},
+{i:'Img11.jpg',l:'Nerve cell',e:'Large cell body, prominent nucleus with nucleolus, Nissl substance in cytoplasm.'},
+{i:'Img12.jpg',l:'Nerve cell (lipofuscin)',e:'Nerve cell with golden-brown lipofuscin pigment granules - sign of aging.'},
+{i:'Img13.jpg',l:'Nerve trunk',e:'Bundle of nerve fascicles surrounded by epineurium, each wrapped by perineurium.'},
+{i:'Img14.jpg',l:'Nerve trunk (osmic acid)',e:'Osmic acid stains myelin black - dark rings showing myelinated fibers in cross-section.'},
+{i:'Img15.jpg',l:'LM spinal ganglion',e:'Contains pseudounipolar neurons with satellite cells, located in dorsal root.'},
+{i:'Img16.jpg',l:'LM sympathetic ganglion',e:'Contains multipolar neurons scattered among nerve fibers, less organized than spinal.'},
+{i:'Img17.jpg',l:'Medium sized artery & vein',e:'Artery: thick muscular wall + internal elastic lamina. Vein: thinner wall + larger lumen.'},
+{i:'Img18.jpg',l:'Continuous capillary',e:'Continuous endothelium with no pores, complete basement membrane. Found in muscle, brain.'},
+{i:'Img19.jpg',l:'Fenestrated capillary',e:'Endothelium with fenestrations (pores). Found in kidney glomerulus and intestine.'},
+{i:'Img20.jpg',l:'Lymph node',e:'Encapsulated lymphoid organ: cortex (follicles), paracortex (T cells), medulla.'},
+{i:'Img21.jpg',l:'Spleen',e:'White pulp (lymphoid follicles + central arteriole) and red pulp (sinusoids + RBCs).'},
+{i:'Img22.jpg',l:'Palatine Tonsil',e:'Stratified squamous non-keratinized epithelium, deep crypts, lymphoid follicles.'},
+{i:'Img23.jpg',l:'Lingual Tonsil',e:'Root of tongue, shallow crypts, stratified squamous epithelium, underlying skeletal muscle.'},
+{i:'Img24.jpg',l:'Pharyngeal Tonsil',e:'Pseudostratified ciliated columnar epithelium (respiratory), located in nasopharynx.'},
+{i:'Img25.jpg',l:'Thick skin of palm',e:'5 epidermal layers including stratum lucidum, very thick stratum corneum, no hair follicles.'},
+{i:'Img26.jpg',l:'Thick skin of sole',e:'Similar to palm: 5 layers, prominent stratum lucidum, very thick cornified layer.'},
+{i:'Img27.jpg',l:'Thin skin',e:'4 epidermal layers (no stratum lucidum), has hair follicles and sebaceous glands.'},
+{i:'Img28.jpg',l:'Brown adipose CT',e:'Multilocular fat cells with central nucleus and multiple small lipid droplets. Rich in mitochondria.'},
+{i:'Img29.jpg',l:'Regular fibrous CT',e:'Densely packed parallel collagen fibers. Found in tendons and ligaments.'},
+{i:'Img30.jpg',l:'Irregular fibrous CT',e:'Densely packed collagen fibers in random directions. Found in dermis and organ capsules.'},
+{i:'Img31.jpg',l:'Elastic CT',e:'Rich in elastic fibers allowing stretch and recoil. Found in ligamenta flava and aorta wall.'},
+{i:'Img32.jpg',l:'Reticular CT',e:'Network of reticular fibers (type III collagen). Found in lymph nodes, spleen, bone marrow.'},
+{i:'Img33.jpg',l:'Mucoid CT',e:'Jelly-like ground substance rich in hyaluronic acid. Found in umbilical cord (Wharton jelly).'},
+{i:'Img34.jpg',l:'Hyaline Cartilage',e:'Glassy matrix with chondrocytes in lacunae. Found in trachea, nose, articular surfaces.'},
+{i:'Img35.jpg',l:'Chondrocytes/cell nests',e:'Chondrocytes grouped in isogenous groups (cell nests) within lacunae in cartilage matrix.'},
+{i:'Img36.jpg',l:'Elastic Cartilage',e:'Similar to hyaline but with elastic fibers in matrix. Found in ear pinna and epiglottis.'},
+{i:'Img37.jpg',l:'Fibrocartilage',e:'Dense collagen fibers with rows of chondrocytes. Found in intervertebral discs and pubic symphysis.'},
+{i:'Img38.jpg',l:'Ground compact bone',e:'Dry bone showing Haversian systems (osteons), lamellae, lacunae without cells.'},
+{i:'Img39.jpg',l:'Decalcified compact bone',e:'Calcium removed, shows organic matrix, osteocytes in lacunae, Haversian canals.'},
+{i:'Img40.jpg',l:'Spongy bone',e:'Trabecular bone with bone marrow spaces between trabeculae. No Haversian systems.'},
+{i:'Img41.jpg',l:'Membranous Ossification',e:'Intramembranous: bone forms directly from mesenchyme. Seen in flat bones of skull.'},
+{i:'Img42.jpg',l:'Cartilaginous Ossification',e:'Endochondral: cartilage model replaced by bone. Seen in long bones with epiphyseal plate.'},
+{i:'Img43.jpg',l:'Scanning EM RBCs',e:'Biconcave disc shape of red blood cells seen under scanning electron microscope.'},
+{i:'Img44.jpg',l:'Hereditary Spherocytosis',e:'RBCs are spherical instead of biconcave due to membrane protein defect (spectrin/ankyrin).'},
+{i:'Img45.jpg',l:'Blood film neutrophil',e:'Most common WBC. Multilobed nucleus (3-5 lobes), fine granules in cytoplasm.'},
+{i:'Img46.jpg',l:'Blood film eosinophil',e:'Bilobed nucleus, large red/orange granules. Involved in parasitic infections and allergies.'},
+{i:'Img47.jpg',l:'Eosinophil and Neutrophil',e:'Comparison: eosinophil has bilobed nucleus + red granules, neutrophil has multilobed + fine granules.'},
+{i:'Img48.jpg',l:'Blood film basophil',e:'Rarest WBC. Large dark blue/purple granules obscuring nucleus. Contains histamine and heparin.'},
+{i:'Img49.jpg',l:'Two adjacent cell membranes',e:'EM showing trilaminar structure of two adjacent cell membranes with intercellular space.'},
+{i:'Img50.jpg',l:'EM mitochondria',e:'Double membrane organelle. Inner membrane has cristae. Powerhouse of cell (ATP production).'},
+{i:'Img51.jpg',l:'EM rER',e:'Rough ER: flattened cisternae studded with ribosomes. Protein synthesis and modification.'},
+{i:'Img52.jpg',l:'EM sER',e:'Smooth ER: tubular network without ribosomes. Lipid synthesis, detoxification, calcium storage.'},
+{i:'Img53.jpg',l:'Golgi in plasma cell',e:'Well-developed Golgi (negative Golgi image) in plasma cell for antibody secretion.'},
+{i:'Img54.jpg',l:'Golgi in nerve cell',e:'Golgi apparatus visible in nerve cell body for processing proteins and neurotransmitters.'},
+{i:'Img55.jpg',l:'Golgi in secretory cell',e:'Prominent Golgi in actively secreting cell for protein packaging and modification.'},
+{i:'Img56.jpg',l:'Golgi',e:'Stack of flattened membrane cisternae. Modifies, sorts and packages proteins for secretion.'},
+{i:'Img57.jpg',l:'1ry and 2ry Lysosomes',e:'Primary: newly formed from Golgi. Secondary: fused with endosome, actively digesting material.'},
+{i:'Img58.jpg',l:'Heterochromatic nucleus',e:'Dense, dark-staining chromatin. Transcriptionally inactive. Seen in mature/resting cells.'},
+{i:'Img59.jpg',l:'Euchromatic nucleus',e:'Light, dispersed chromatin. Transcriptionally active. Seen in actively synthesizing cells.'},
+{i:'Img60.jpg',l:'Simple squamous epithelium',e:'Single layer of flat cells. Found in endothelium, mesothelium, Bowman capsule. For diffusion.'},
+{i:'Img61.jpg',l:'Simple cuboidal epithelium',e:'Single layer of cube-shaped cells. Found in kidney tubules, thyroid follicles, ovary surface.'},
+{i:'Img62.jpg',l:'Simple columnar epithelium',e:'Single layer of tall cells. Found in GI tract, gallbladder. For absorption and secretion.'},
+{i:'Img63.jpg',l:'Pseudostratified columnar ciliated epithelium',e:'Appears stratified but all cells touch basement membrane. Found in trachea (respiratory epithelium).'},
+{i:'Img64.jpg',l:'Non-keratinized stratified squamous',e:'Multiple layers, surface cells nucleated. Found in oral cavity, esophagus, vagina. Moist surfaces.'},
+{i:'Img65.jpg',l:'Keratinized stratified squamous',e:'Multiple layers, surface cells dead and keratinized. Found in skin epidermis. Dry surfaces.'},
+{i:'Img66.jpg',l:'Transitional epithelium',e:'Stratified epithelium that stretches. Surface dome-shaped cells. Found in urinary bladder, ureter.'},
+{i:'Img67.jpg',l:'Areolar / loose CT',e:'Loosely arranged collagen and elastic fibers with many cell types. Found under epithelia and around organs.'},
+{i:'Img68.jpg',l:'White adipose CT',e:'Unilocular fat cells with peripheral nucleus and single large lipid droplet. Energy storage and insulation.'}
+];
+var Q=[],C=0,S=0,CC=0,WC=0,A=[],AN=false,PN='',STK=0;
+var TO=false,TS=0,TI=null;
+var THS=[{bg:'#0a0e1a',pri:'#6366f1',pri2:'#a855f7'},{bg:'#0f1a0f',pri:'#22c55e',pri2:'#10b981'},{bg:'#1a0a1a',pri:'#d946ef',pri2:'#a855f7'},{bg:'#0a1a1a',pri:'#06b6d4',pri2:'#0ea5e9'}];var TH=0;
+function initDNA(){var s1=document.getElementById('ds1');var s2=document.getElementById('ds2');for(var i=0;i<20;i++){var d=document.createElement('div');d.className='dna-dot';d.style.top=(i*5)+'%';d.style.animationDelay=(i*.4)+'s';s1.appendChild(d);var d2=document.createElement('div');d2.className='dna-dot dna-dot2';d2.style.top=(i*5)+'%';d2.style.animationDelay=(i*.4+.2)+'s';d2.style.animationDirection='reverse';s1.appendChild(d2);var d3=document.createElement('div');d3.className='dna-dot';d3.style.top=(i*5+2.5)+'%';d3.style.animationDelay=(i*.4+.3)+'s';s2.appendChild(d3)}}
+initDNA();showLB('lbList');
+function td(){TH=(TH+1)%THS.length;var t=THS[TH];document.documentElement.style.setProperty('--bg',t.bg);document.documentElement.style.setProperty('--pri',t.pri);document.documentElement.style.setProperty('--pri2',t.pri2)}
+function tt(){TO=!TO;document.getElementById('tmb').classList.toggle('on',TO);if(TO){TS=0;TI=setInterval(function(){TS++;var m=Math.floor(TS/60);var s=TS%60;document.getElementById('tm').textContent=(m<10?'0':'')+m+':'+(s<10?'0':'')+s},1000)}else{clearInterval(TI);document.getElementById('tm').textContent=''}}
+function fs(){if(!document.fullscreenElement){document.documentElement.requestFullscreen().catch(function(){})}else{document.exitFullscreen()}}
+function sh(a){for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t}return a}
+function cf(){var co=['#6366f1','#a855f7','#22c55e','#f59e0b','#ec4899','#06b6d4'];for(var i=0;i<25;i++){var c=document.createElement('div');c.className='conf';c.style.left=Math.random()*100+'vw';var sz=Math.random()*9+4;c.style.width=sz+'px';c.style.height=sz+'px';c.style.background=co[Math.floor(Math.random()*co.length)];c.style.borderRadius=Math.random()>.5?'50%':'3px';c.style.animationDuration=(Math.random()*2+2)+'s';c.style.animationDelay=(Math.random()*.4)+'s';document.body.appendChild(c);setTimeout(function(){c.remove()},4500)}}
+function emr(){var em=['🔬','🧬','🧪','🏆','⭐','🎉','💯','✨','🎊','🥇'];for(var i=0;i<20;i++){var e=document.createElement('div');e.className='emoji-rain';e.textContent=em[Math.floor(Math.random()*em.length)];e.style.left=Math.random()*100+'vw';e.style.animationDuration=(Math.random()*3+3)+'s';e.style.animationDelay=(Math.random()*2)+'s';document.body.appendChild(e);setTimeout(function(){e.remove()},7000)}}
+function getLB(){try{return JSON.parse(localStorage.getItem('hq_lb2')||'[]')}catch(e){return[]}}
+function saveLB(n,s,t){var lb=getLB();lb.push({n:n,s:s,t:t,p:Math.round(s/t*100),d:new Date().toLocaleDateString()});lb.sort(function(a,b){return b.p-a.p||b.s-a.s});if(lb.length>10)lb=lb.slice(0,10);localStorage.setItem('hq_lb2',JSON.stringify(lb))}
+function showLB(id){var lb=getLB();var el=document.getElementById(id);if(!el)return;if(!lb.length){el.innerHTML='<div class="lb-empty">No scores yet. Be the first! 🏆</div>';return}var h='';var top=Math.min(lb.length,5);for(var i=0;i<top;i++){var r=i===0?'g':i===1?'s':i===2?'b':'x';var md=i===0?'🥇':i===1?'🥈':i===2?'🥉':'';h+='<div class="lb-item"><div class="lb-rank '+r+'">'+(md||(i+1))+'</div><div class="lb-name">'+lb[i].n+'</div><div class="lb-score">'+lb[i].p+'%</div></div>'}el.innerHTML=h}
+function go(){
+PN=document.getElementById('nameIn').value.trim();
+if(!PN){document.getElementById('nameErr').style.display='block';document.getElementById('nameIn').focus();return}
+document.getElementById('nameErr').style.display='none';
+document.getElementById('pName').textContent=PN;
+var al=DA.map(function(x){return x.l});Q=[];var sd=DA.slice();sh(sd);
+for(var k=0;k<sd.length;k++){var it=sd[k];var co=it.l;var wr=al.filter(function(x){return x!==co});sh(wr);wr=wr.slice(0,3);var op=wr.concat([co]);sh(op);Q.push({src:U+it.i,l:co,e:it.e,o:op,ci:op.indexOf(co)})}
+C=0;S=0;CC=0;WC=0;A=[];STK=0;
+document.getElementById('H').className='hide';document.getElementById('G').className='';ld()}
+function ld(){
+AN=false;var q=Q[C];
+document.getElementById('qn').textContent=C+1;
+document.getElementById('pf').style.width=(C/Q.length*100)+'%';
+document.getElementById('s1').textContent=S;
+document.getElementById('s2').textContent=CC;
+document.getElementById('s3').textContent=WC;
+document.getElementById('qi').src=q.src;
+document.getElementById('tb1').classList.remove('off');
+document.getElementById('ibg').textContent='🔍 Identify';
+document.getElementById('ibg').style.background='rgba(10,14,26,.75)';
+document.getElementById('stk').innerHTML=STK>=2?'<span class="streak-badge">🔥'+STK+'</span>':'';
+var qc=document.getElementById('QC');qc.classList.remove('si');void qc.offsetHeight;qc.classList.add('si');
+var od=document.getElementById('op');od.innerHTML='';var lt=['A','B','C','D'];
+for(var i=0;i<q.o.length;i++){var b=document.createElement('button');b.className='ob';b.innerHTML='<span class="ol">'+lt[i]+'</span><span>'+q.o[i]+'</span>';b.setAttribute('data-i',i);b.onclick=function(){pk(parseInt(this.getAttribute('data-i')))};od.appendChild(b)}
+document.getElementById('fb').className='hide';document.getElementById('nb').className='nbtn hide'}
+function pk(idx){
+if(AN)return;AN=true;var q=Q[C];var ok=idx===q.ci;
+if(ok){S++;CC++;STK++;cf();if(STK>=3)cf()}else{WC++;STK=0;if(navigator.vibrate)navigator.vibrate([100,50,100])}
+document.getElementById('tb1').classList.add('off');
+document.getElementById('ibg').textContent='✅ '+q.l;
+document.getElementById('ibg').style.background='rgba(34,197,94,.85)';
+document.getElementById('s1').textContent=S;document.getElementById('s2').textContent=CC;document.getElementById('s3').textContent=WC;
+document.getElementById('stk').innerHTML=STK>=2?'<span class="streak-badge">🔥'+STK+'</span>':'';
+var bs=document.querySelectorAll('.ob');
+for(var i=0;i<bs.length;i++){bs[i].disabled=true;if(i===q.ci)bs[i].classList.add('ok');if(i===idx&&!ok)bs[i].classList.add('no')}
+var f=document.getElementById('fb');f.className='fb '+(ok?'fok':'fno');
+f.innerHTML='<h4>'+(ok?'✅ Correct!':'❌ Incorrect')+'</h4><p class="al">'+q.l+'</p><p>'+q.e+'</p>';
+A.push({l:q.l,s:q.o[idx],ok:ok,src:q.src,e:q.e});
+var nb=document.getElementById('nb');nb.className='nbtn';nb.textContent=C+1>=Q.length?'📊 View Results':'Next Question →'}
+function nx(){var qc=document.getElementById('QC');qc.classList.remove('si');qc.classList.add('so');setTimeout(function(){qc.classList.remove('so');C++;if(C>=Q.length){rs()}else{ld()}},300)}
+function rs(){
+if(TI)clearInterval(TI);saveLB(PN,CC,Q.length);
+document.getElementById('G').className='hide';document.getElementById('R').className='';
+document.getElementById('rName').textContent=PN;
+var t=Q.length;var p=Math.round(CC/t*100);
+document.getElementById('fsc').textContent=p+'%';document.getElementById('r1').textContent=t;document.getElementById('r2').textContent=CC;document.getElementById('r3').textContent=WC;
+var m=document.getElementById('ms');
+if(p>=80){m.textContent='🏆 Excellent!';m.style.color='var(--ok)';cf();cf();emr()}
+else if(p>=60){m.textContent='👍 Good job!';m.style.color='var(--pri)';cf()}
+else if(p>=40){m.textContent='📚 Keep studying!';m.style.color='#f59e0b'}
+else{m.textContent='💪 Try again!';m.style.color='var(--no)'}
+showLB('lbList2');
+var rv=document.getElementById('rv');rv.innerHTML='';
+for(var i=0;i<A.length;i++){var a=A[i];var d=document.createElement('div');d.className='ri '+(a.ok?'rok':'rno');
+d.innerHTML='<p><strong>Q'+(i+1)+':</strong> '+(a.ok?'✅':'❌')+' '+a.l+'</p><img src="'+a.src+'"><p>Your answer: <strong>'+a.s+'</strong></p><p>Correct: <strong style="color:var(--ok)">'+a.l+'</strong></p><p>'+a.e+'</p>';rv.appendChild(d)}}
+function sw(){var t=Q.length;var p=Math.round(CC/t*100);var tx='🔬 *HistoQuiz Pro - MUST*%0A👤 '+PN+'%0A✅ '+CC+'/'+t+' ('+p+'%)%0A%0ATry: https://karimmust.github.io/histoquiz';window.open('https://wa.me/?text='+tx)}
+function ss(){var t=Q.length;var p=Math.round(CC/t*100);var tx='🔬 HistoQuiz: '+PN+' - '+CC+'/'+t+' ('+p+'%)\nTry: https://karimmust.github.io/histoquiz';if(navigator.share){navigator.share({title:'HistoQuiz',text:tx})}else if(navigator.clipboard){navigator.clipboard.writeText(tx).then(function(){alert('✅ Copied!')})}}
+function re(){document.getElementById('R').className='hide';document.getElementById('H').className='';showLB('lbList')}
+</script>
+</body>
+</html>
