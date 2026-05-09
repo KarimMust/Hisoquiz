@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HistoQuiz Pro - MUST Dentistry</title>
+<title>HistoQuiz Pro - MUST</title>
 <style>
 :root{--bg:#0a0e1a;--card:rgba(15,23,42,.9);--card2:rgba(30,41,59,.6);--text:#f1f5f9;--sub:#94a3b8;--pri:#6366f1;--pri2:#a855f7;--ok:#22c55e;--no:#ef4444;--brd:rgba(99,102,241,.15)}
 *{margin:0;padding:0;box-sizing:border-box}
@@ -35,7 +35,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .hb{width:38px;height:38px;border-radius:10px;border:1px solid var(--brd);background:var(--card2);color:var(--text);cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:.3s;backdrop-filter:blur(10px)}
 .hb:hover{border-color:var(--pri)}
 .hb.on{background:var(--pri);color:#fff}
-.home{background:var(--card);backdrop-filter:blur(20px);border-radius:24px;padding:36px 24px;border:1px solid var(--brd);text-align:center;position:relative;overflow:hidden;animation:fi .5s ease}
+.home{background:var(--card);backdrop-filter:blur(20px);border-radius:24px;padding:36px 24px;border:1px solid var(--brd);text-align:center;position:relative;overflow:hidden}
 .home::before{content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:300px;height:300px;background:radial-gradient(circle,rgba(99,102,241,.1),transparent 70%);pointer-events:none}
 .home-icon{font-size:3.5rem;margin-bottom:16px;display:inline-block;animation:pu 3s ease-in-out infinite}
 @keyframes pu{0%,100%{transform:scale(1) translateY(0)}50%{transform:scale(1.05) translateY(-6px)}}
@@ -48,7 +48,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .feats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:16px 0;text-align:left}
 .feat{display:flex;align-items:center;gap:7px;padding:9px 10px;background:rgba(99,102,241,.05);border:1px solid rgba(99,102,241,.08);border-radius:11px;font-size:.75rem}
 .sbtn{padding:15px 46px;border:none;border-radius:16px;background:linear-gradient(135deg,var(--pri),var(--pri2));color:#fff;font-size:1.05rem;font-weight:700;cursor:pointer;transition:.3s;box-shadow:0 4px 20px rgba(99,102,241,.3)}
-.sbtn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(99,102,241,.4)}
+.sbtn:hover{transform:translateY(-2px)}
 .lb-section{margin-top:20px;text-align:left}
 .lb-section h3{font-size:.85rem;font-weight:700;margin-bottom:8px;color:var(--sub)}
 .lb-item{display:flex;align-items:center;gap:10px;padding:8px 12px;background:rgba(99,102,241,.04);border:1px solid rgba(99,102,241,.08);border-radius:10px;margin-bottom:5px;font-size:.78rem}
@@ -61,7 +61,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .lb-empty{color:var(--sub);font-size:.75rem;text-align:center;padding:12px;font-style:italic}
 .pi{display:flex;justify-content:space-between;font-size:.78rem;color:var(--sub);margin-bottom:5px}
 .pb{height:5px;background:rgba(99,102,241,.1);border-radius:3px;overflow:hidden;margin-bottom:10px}
-.pf{height:100%;background:linear-gradient(90deg,var(--pri),var(--pri2));border-radius:3px;transition:width .5s;box-shadow:0 0 10px rgba(99,102,241,.3)}
+.pf{height:100%;background:linear-gradient(90deg,var(--pri),var(--pri2));border-radius:3px;transition:width .3s}
 .sr{display:flex;gap:6px;margin-bottom:10px}
 .sc{flex:1;background:var(--card);backdrop-filter:blur(10px);border:1px solid var(--brd);border-radius:12px;padding:10px 6px;text-align:center}
 .sc .n{font-size:1.3rem;font-weight:800}.sc .l{font-size:.58rem;color:var(--sub);text-transform:uppercase;letter-spacing:.5px;font-weight:600;margin-top:1px}
@@ -69,40 +69,31 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .player-bar{display:flex;align-items:center;gap:8px;padding:6px 12px;background:rgba(99,102,241,.06);border-radius:10px;margin-bottom:10px;font-size:.78rem}
 .player-bar span{color:#818cf8;font-weight:700}
 .qc{background:var(--card);backdrop-filter:blur(20px);border-radius:20px;padding:18px;border:1px solid var(--brd);margin-bottom:14px}
-.si{animation:si .45s ease}
-.so{animation:so .3s ease}
-@keyframes si{from{opacity:0;transform:translateX(60px)}to{opacity:1;transform:translateX(0)}}
-@keyframes so{from{opacity:1}to{opacity:0;transform:translateX(-60px)}}
-@keyframes fi{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 .badge{display:inline-block;padding:4px 12px;background:linear-gradient(135deg,var(--pri),var(--pri2));color:#fff;border-radius:20px;font-size:.63rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
 .qt{font-size:1.02rem;font-weight:700;margin-bottom:14px}
 .ib{position:relative;width:100%;border-radius:16px;overflow:hidden;margin-bottom:14px;background:#080c16;border:1px solid var(--brd)}
-.ib img{width:100%;min-height:220px;max-height:480px;object-fit:contain;display:block;padding:4px}
-.text-blur{position:absolute;top:0;left:0;right:0;height:10%;backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);background:rgba(10,14,26,.3);z-index:2;pointer-events:none;transition:all .6s ease}
-.text-blur.off{backdrop-filter:none;-webkit-backdrop-filter:none;background:transparent}
+.ib img{width:100%;min-height:220px;max-height:480px;object-fit:contain;display:block;padding:4px;transition:filter .5s ease}
+.ib img.blurred{filter:blur(8px) brightness(.9)}
+.ib img.clear{filter:none}
 .ibadge{position:absolute;bottom:6px;right:6px;background:rgba(10,14,26,.75);color:#fff;padding:4px 10px;border-radius:8px;font-size:.65rem;z-index:3;font-weight:600;transition:.3s;backdrop-filter:blur(8px);border:1px solid rgba(99,102,241,.12)}
 .opts{display:grid;gap:7px}
-.ob{padding:13px 14px;border:2px solid var(--brd);border-radius:14px;background:var(--card2);backdrop-filter:blur(10px);color:var(--text);font-size:.83rem;cursor:pointer;text-align:left;transition:.25s;display:flex;align-items:center;gap:10px;font-weight:500;position:relative;overflow:hidden}
-.ob::before{content:'';position:absolute;top:0;left:0;width:0;height:100%;background:linear-gradient(90deg,rgba(99,102,241,.06),transparent);transition:width .3s}
-.ob:hover:not(:disabled)::before{width:100%}
-.ob:hover:not(:disabled){border-color:var(--pri);transform:translateX(5px)}
+.ob{padding:13px 14px;border:2px solid var(--brd);border-radius:14px;background:var(--card2);backdrop-filter:blur(10px);color:var(--text);font-size:.83rem;cursor:pointer;text-align:left;transition:.2s;display:flex;align-items:center;gap:10px;font-weight:500;position:relative;overflow:hidden}
+.ob:hover:not(:disabled){border-color:var(--pri);transform:translateX(4px)}
 .ob:disabled{cursor:default}
-.ob.ok{border-color:var(--ok);background:rgba(34,197,94,.1);animation:pop .4s;box-shadow:0 0 25px rgba(34,197,94,.2),inset 0 0 15px rgba(34,197,94,.05)}
-.ob.no{border-color:var(--no);background:rgba(239,68,68,.1);animation:shk .4s}
-@keyframes pop{0%{transform:scale(1)}50%{transform:scale(1.02)}100%{transform:scale(1)}}
-@keyframes shk{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.ob.ok{border-color:var(--ok);background:rgba(34,197,94,.1);box-shadow:0 0 25px rgba(34,197,94,.2),inset 0 0 15px rgba(34,197,94,.05)}
+.ob.no{border-color:var(--no);background:rgba(239,68,68,.1)}
 .ol{width:30px;height:30px;border-radius:9px;background:rgba(99,102,241,.12);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.73rem;flex-shrink:0;transition:.3s}
 .ok .ol{background:var(--ok);color:#fff;transform:scale(1.1);box-shadow:0 0 12px rgba(34,197,94,.3)}
 .no .ol{background:var(--no);color:#fff}
-.fb{margin-top:14px;padding:14px;border-radius:14px;border:1px solid var(--brd);animation:fi .3s;backdrop-filter:blur(10px)}
+.fb{margin-top:14px;padding:14px;border-radius:14px;border:1px solid var(--brd);backdrop-filter:blur(10px)}
 .fb.fok{background:rgba(34,197,94,.06);border-color:rgba(34,197,94,.25)}
 .fb.fno{background:rgba(239,68,68,.06);border-color:rgba(239,68,68,.25)}
 .fb h4{margin-bottom:4px;font-size:.95rem}
 .fb p{font-size:.76rem;color:var(--sub);line-height:1.55}
 .fb .al{color:var(--text);font-weight:700;font-size:.83rem}
-.nbtn{width:100%;padding:14px;border:none;border-radius:14px;background:linear-gradient(135deg,var(--pri),var(--pri2));color:#fff;font-size:.92rem;font-weight:700;cursor:pointer;margin-top:12px;transition:.3s;box-shadow:0 4px 15px rgba(99,102,241,.2)}
+.nbtn{width:100%;padding:14px;border:none;border-radius:14px;background:linear-gradient(135deg,var(--pri),var(--pri2));color:#fff;font-size:.92rem;font-weight:700;cursor:pointer;margin-top:12px;transition:.2s;box-shadow:0 4px 15px rgba(99,102,241,.2)}
 .nbtn:hover{transform:translateY(-2px)}
-.rc{background:var(--card);backdrop-filter:blur(20px);border-radius:24px;padding:28px 20px;border:1px solid var(--brd);text-align:center;margin-bottom:14px;position:relative;overflow:hidden;animation:fi .5s}
+.rc{background:var(--card);backdrop-filter:blur(20px);border-radius:24px;padding:28px 20px;border:1px solid var(--brd);text-align:center;margin-bottom:14px;position:relative;overflow:hidden}
 .rc h2{font-size:1.3rem;margin-bottom:14px;font-weight:800}
 .bs{font-size:3.2rem;font-weight:900;background:linear-gradient(135deg,#818cf8,#c084fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1}
 .rg{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:18px 0}
@@ -110,7 +101,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .rs .rn{font-size:1.3rem;font-weight:800}.rs .rl{font-size:.6rem;color:var(--sub);text-transform:uppercase;letter-spacing:.5px;font-weight:600}
 .bg{display:grid;gap:7px;margin-bottom:14px}
 .wab{padding:12px;border:none;border-radius:13px;background:linear-gradient(135deg,#22c55e,#16a34a);color:#fff;font-size:.85rem;font-weight:700;cursor:pointer;transition:.2s}
-.wab:hover{transform:translateY(-1px)}
 .shb{padding:12px;border:none;border-radius:13px;background:linear-gradient(135deg,var(--pri),var(--pri2));color:#fff;font-size:.85rem;font-weight:700;cursor:pointer;transition:.2s}
 .fsb{padding:12px;border:none;border-radius:13px;background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff;font-size:.85rem;font-weight:700;cursor:pointer;transition:.2s}
 .reb{padding:12px;border:2px solid var(--pri);border-radius:13px;background:transparent;color:#818cf8;font-size:.85rem;font-weight:700;cursor:pointer;transition:.2s}
@@ -126,7 +116,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .emoji-rain{position:fixed;top:-40px;z-index:999;pointer-events:none;font-size:1.8rem;animation:er 4s linear forwards}
 @keyframes er{0%{transform:translateY(0);opacity:1}100%{transform:translateY(110vh);opacity:0}}
 .timer{font-family:monospace;font-size:.78rem;color:var(--sub);background:rgba(99,102,241,.08);padding:2px 8px;border-radius:6px}
-.streak-badge{display:inline-block;padding:3px 8px;background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff;border-radius:8px;font-size:.65rem;font-weight:700;margin-left:6px;animation:pop .3s}
+.streak-badge{display:inline-block;padding:3px 8px;background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff;border-radius:8px;font-size:.65rem;font-weight:700;margin-left:6px}
 </style>
 </head>
 <body>
@@ -170,7 +160,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 <div class="qc" id="QC">
 <div class="badge">🔍 Identify</div>
 <div class="qt">What is this tissue / cell?</div>
-<div class="ib"><img id="qi" src=""><div class="text-blur" id="tb1"></div><div class="ibadge" id="ibg">🔍 Identify</div></div>
+<div class="ib"><img id="qi" src="" class="blurred"><div class="ibadge" id="ibg">🔍 Identify</div></div>
 <div class="opts" id="op"></div>
 <div id="fb" class="hide"></div>
 <button class="nbtn hide" id="nb" onclick="nx()">Next Question →</button>
@@ -201,76 +191,75 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 var U='https://raw.githubusercontent.com/KarimMust/Hisoquiz/main/';
 var DA=[
 {i:'Img1.jpg',l:'Blood film small lymphocyte',e:'Small round cell, dense dark nucleus, thin rim of basophilic cytoplasm. Smallest WBC.'},
-{i:'Img2.jpg',l:'Blood film large lymphocyte',e:'Larger cell, more abundant pale blue cytoplasm, less condensed chromatin.'},
-{i:'Img3.jpg',l:'Blood film small & large lymphocytes',e:'Comparison: small has minimal cytoplasm + dense nucleus, large has more cytoplasm.'},
-{i:'Img4.jpg',l:'Blood film monocyte',e:'Largest WBC. Kidney-shaped nucleus, pale blue-grey cytoplasm. Precursor of macrophages.'},
-{i:'Img5.jpg',l:'Blood film leucocytes',e:'Mixed WBCs: neutrophils, eosinophils, lymphocytes, monocytes among RBCs.'},
-{i:'Img6.jpg',l:'TS Skeletal Muscle',e:'Transverse section: polygonal fibers, peripheral nuclei, fascicles separated by perimysium.'},
-{i:'Img7.jpg',l:'LS Skeletal Muscle',e:'Longitudinal section: parallel fibers with cross-striations and peripheral multinucleated nuclei.'},
-{i:'Img8.jpg',l:'Myotendinous junction',e:'Transition zone where skeletal muscle fibers attach to dense regular CT (tendon).'},
-{i:'Img9.jpg',l:'Cardiac muscle',e:'Branching fibers, central nuclei, intercalated discs, cross-striations.'},
+{i:'Img2.jpg',l:'Blood film large lymphocyte',e:'Larger cell, more pale blue cytoplasm, less condensed chromatin.'},
+{i:'Img3.jpg',l:'Blood film small & large lymphocytes',e:'Small: minimal cytoplasm + dense nucleus. Large: more cytoplasm.'},
+{i:'Img4.jpg',l:'Blood film monocyte',e:'Largest WBC. Kidney-shaped nucleus, pale blue-grey cytoplasm.'},
+{i:'Img5.jpg',l:'Blood film leucocytes',e:'Mixed WBCs: neutrophils, eosinophils, lymphocytes, monocytes.'},
+{i:'Img6.jpg',l:'TS Skeletal Muscle',e:'Transverse section: polygonal fibers, peripheral nuclei, fascicles.'},
+{i:'Img7.jpg',l:'LS Skeletal Muscle',e:'Longitudinal: parallel fibers with cross-striations, peripheral nuclei.'},
+{i:'Img8.jpg',l:'Myotendinous junction',e:'Skeletal muscle fibers attaching to dense regular CT (tendon).'},
+{i:'Img9.jpg',l:'Cardiac muscle',e:'Branching fibers, central nuclei, intercalated discs, striations.'},
 {i:'Img10.jpg',l:'Smooth muscle',e:'Spindle-shaped cells, central elongated nucleus, no striations.'},
-{i:'Img11.jpg',l:'Nerve cell',e:'Large cell body, prominent nucleus with nucleolus, Nissl substance in cytoplasm.'},
-{i:'Img12.jpg',l:'Nerve cell (lipofuscin)',e:'Nerve cell with golden-brown lipofuscin pigment - sign of aging.'},
-{i:'Img13.jpg',l:'Nerve trunk',e:'Bundle of nerve fascicles surrounded by epineurium, each wrapped by perineurium.'},
+{i:'Img11.jpg',l:'Nerve cell',e:'Large cell body, prominent nucleus, nucleolus, Nissl substance.'},
+{i:'Img12.jpg',l:'Nerve cell (lipofuscin)',e:'Nerve cell with golden-brown lipofuscin pigment - aging sign.'},
+{i:'Img13.jpg',l:'Nerve trunk',e:'Nerve fascicles surrounded by epineurium, wrapped by perineurium.'},
 {i:'Img14.jpg',l:'Nerve trunk (osmic acid)',e:'Osmic acid stains myelin black - dark rings in cross-section.'},
 {i:'Img15.jpg',l:'LM spinal ganglion',e:'Pseudounipolar neurons with satellite cells in dorsal root.'},
 {i:'Img16.jpg',l:'LM sympathetic ganglion',e:'Multipolar neurons scattered among nerve fibers.'},
-{i:'Img17.jpg',l:'Medium sized artery & vein',e:'Artery: thick wall + internal elastic lamina. Vein: thinner wall + larger lumen.'},
+{i:'Img17.jpg',l:'Medium sized artery & vein',e:'Artery: thick wall. Vein: thinner wall + larger lumen.'},
 {i:'Img18.jpg',l:'Continuous capillary',e:'Continuous endothelium, no pores, complete basement membrane.'},
-{i:'Img19.jpg',l:'Fenestrated capillary',e:'Endothelium with fenestrations. Found in kidney and intestine.'},
-{i:'Img20.jpg',l:'Lymph node',e:'Cortex (follicles), paracortex (T cells), medulla (medullary cords).'},
-{i:'Img21.jpg',l:'Spleen',e:'White pulp (lymphoid follicles + central arteriole) and red pulp (sinusoids).'},
-{i:'Img22.jpg',l:'Palatine Tonsil',e:'Stratified squamous non-keratinized epithelium, deep crypts, lymphoid follicles.'},
+{i:'Img19.jpg',l:'Fenestrated capillary',e:'Endothelium with fenestrations. Kidney and intestine.'},
+{i:'Img20.jpg',l:'Lymph node',e:'Cortex follicles, paracortex T cells, medulla.'},
+{i:'Img21.jpg',l:'Spleen',e:'White pulp (follicles + central arteriole) and red pulp (sinusoids).'},
+{i:'Img22.jpg',l:'Palatine Tonsil',e:'Stratified squamous epithelium, deep crypts, lymphoid follicles.'},
 {i:'Img23.jpg',l:'Lingual Tonsil',e:'Root of tongue, shallow crypts, underlying skeletal muscle.'},
 {i:'Img24.jpg',l:'Pharyngeal Tonsil',e:'Pseudostratified ciliated columnar epithelium (respiratory).'},
-{i:'Img25.jpg',l:'Thick skin of palm',e:'5 epidermal layers including stratum lucidum, thick stratum corneum, no hair.'},
-{i:'Img26.jpg',l:'Thick skin of sole',e:'5 layers, prominent stratum lucidum, very thick cornified layer.'},
-{i:'Img27.jpg',l:'Thin skin',e:'4 epidermal layers, has hair follicles and sebaceous glands.'},
-{i:'Img28.jpg',l:'Brown adipose CT',e:'Multilocular fat cells, central nucleus, multiple small lipid droplets, rich in mitochondria.'},
-{i:'Img29.jpg',l:'Regular fibrous CT',e:'Densely packed parallel collagen fibers. Found in tendons and ligaments.'},
-{i:'Img30.jpg',l:'Irregular fibrous CT',e:'Densely packed collagen in random directions. Found in dermis.'},
-{i:'Img31.jpg',l:'Elastic CT',e:'Rich in elastic fibers for stretch and recoil. Found in ligamenta flava.'},
-{i:'Img32.jpg',l:'Reticular CT',e:'Network of reticular fibers (type III collagen). Found in lymph nodes, spleen.'},
-{i:'Img33.jpg',l:'Mucoid CT',e:'Jelly-like ground substance rich in hyaluronic acid. Wharton jelly of umbilical cord.'},
-{i:'Img34.jpg',l:'Hyaline Cartilage',e:'Glassy matrix with chondrocytes in lacunae. Found in trachea, nose.'},
-{i:'Img35.jpg',l:'Chondrocytes/cell nests',e:'Chondrocytes in isogenous groups (cell nests) within lacunae.'},
-{i:'Img36.jpg',l:'Elastic Cartilage',e:'Hyaline-like but with elastic fibers. Found in ear pinna and epiglottis.'},
-{i:'Img37.jpg',l:'Fibrocartilage',e:'Dense collagen with rows of chondrocytes. Intervertebral discs, pubic symphysis.'},
-{i:'Img38.jpg',l:'Ground compact bone',e:'Dry bone: Haversian systems (osteons), lamellae, lacunae without cells.'},
-{i:'Img39.jpg',l:'Decalcified compact bone',e:'Calcium removed, organic matrix visible, osteocytes in lacunae.'},
-{i:'Img40.jpg',l:'Spongy bone',e:'Trabecular bone with marrow spaces. No Haversian systems.'},
-{i:'Img41.jpg',l:'Membranous Ossification',e:'Intramembranous: bone from mesenchyme directly. Flat bones of skull.'},
-{i:'Img42.jpg',l:'Cartilaginous Ossification',e:'Endochondral: cartilage replaced by bone. Long bones, epiphyseal plate.'},
-{i:'Img43.jpg',l:'Scanning EM RBCs',e:'Biconcave disc shape of RBCs under scanning electron microscope.'},
-{i:'Img44.jpg',l:'Hereditary Spherocytosis',e:'Spherical RBCs due to membrane protein defect (spectrin/ankyrin).'},
-{i:'Img45.jpg',l:'Blood film neutrophil',e:'Most common WBC. Multilobed nucleus (3-5 lobes), fine granules.'},
-{i:'Img46.jpg',l:'Blood film eosinophil',e:'Bilobed nucleus, large red/orange granules. Parasites and allergies.'},
-{i:'Img47.jpg',l:'Eosinophil and Neutrophil',e:'Eosinophil: bilobed+red granules. Neutrophil: multilobed+fine granules.'},
-{i:'Img48.jpg',l:'Blood film basophil',e:'Rarest WBC. Large dark blue granules obscuring nucleus. Histamine+heparin.'},
-{i:'Img49.jpg',l:'Two adjacent cell membranes',e:'EM: trilaminar structure of two adjacent membranes with intercellular space.'},
-{i:'Img50.jpg',l:'EM mitochondria',e:'Double membrane, inner cristae. Powerhouse of cell - ATP production.'},
-{i:'Img51.jpg',l:'EM rER',e:'Rough ER: flattened cisternae with ribosomes. Protein synthesis.'},
-{i:'Img52.jpg',l:'EM sER',e:'Smooth ER: tubular network, no ribosomes. Lipid synthesis, detoxification.'},
-{i:'Img53.jpg',l:'Golgi in plasma cell',e:'Negative Golgi image in plasma cell for antibody secretion.'},
-{i:'Img54.jpg',l:'Golgi in nerve cell',e:'Golgi in nerve cell body for protein and neurotransmitter processing.'},
-{i:'Img55.jpg',l:'Golgi in secretory cell',e:'Prominent Golgi in secretory cell for protein packaging.'},
-{i:'Img56.jpg',l:'Golgi',e:'Stack of flattened cisternae. Modifies, sorts, packages proteins.'},
-{i:'Img57.jpg',l:'1ry and 2ry Lysosomes',e:'Primary: from Golgi. Secondary: fused with endosome, actively digesting.'},
-{i:'Img58.jpg',l:'Heterochromatic nucleus',e:'Dense dark chromatin. Transcriptionally inactive. Mature/resting cells.'},
-{i:'Img59.jpg',l:'Euchromatic nucleus',e:'Light dispersed chromatin. Transcriptionally active. Synthesizing cells.'},
-{i:'Img60.jpg',l:'Simple squamous epithelium',e:'Single flat cell layer. Endothelium, mesothelium. For diffusion.'},
-{i:'Img61.jpg',l:'Simple cuboidal epithelium',e:'Single cube-shaped layer. Kidney tubules, thyroid follicles.'},
-{i:'Img62.jpg',l:'Simple columnar epithelium',e:'Single tall cell layer. GI tract. Absorption and secretion.'},
-{i:'Img63.jpg',l:'Pseudostratified columnar ciliated epithelium',e:'All cells touch basement membrane. Trachea (respiratory epithelium).'},
-{i:'Img64.jpg',l:'Non-keratinized stratified squamous',e:'Multiple layers, surface nucleated. Oral cavity, esophagus. Moist.'},
-{i:'Img65.jpg',l:'Keratinized stratified squamous',e:'Multiple layers, surface dead+keratinized. Skin epidermis. Dry.'},
-{i:'Img66.jpg',l:'Transitional epithelium',e:'Stretches. Dome-shaped surface cells. Urinary bladder, ureter.'},
-{i:'Img67.jpg',l:'Areolar / loose CT',e:'Loosely arranged collagen+elastic fibers. Under epithelia, around organs.'},
-{i:'Img68.jpg',l:'White adipose CT',e:'Unilocular fat cells, peripheral nucleus, single large lipid droplet.'}
+{i:'Img25.jpg',l:'Thick skin of palm',e:'5 epidermal layers, stratum lucidum, thick corneum, no hair.'},
+{i:'Img26.jpg',l:'Thick skin of sole',e:'5 layers, stratum lucidum, very thick cornified layer.'},
+{i:'Img27.jpg',l:'Thin skin',e:'4 epidermal layers, hair follicles and sebaceous glands.'},
+{i:'Img28.jpg',l:'Brown adipose CT',e:'Multilocular fat cells, central nucleus, multiple lipid droplets.'},
+{i:'Img29.jpg',l:'Regular fibrous CT',e:'Parallel collagen fibers. Tendons and ligaments.'},
+{i:'Img30.jpg',l:'Irregular fibrous CT',e:'Random collagen directions. Dermis and organ capsules.'},
+{i:'Img31.jpg',l:'Elastic CT',e:'Elastic fibers for stretch and recoil. Ligamenta flava.'},
+{i:'Img32.jpg',l:'Reticular CT',e:'Reticular fiber network (type III collagen). Lymph nodes, spleen.'},
+{i:'Img33.jpg',l:'Mucoid CT',e:'Jelly-like ground substance. Wharton jelly of umbilical cord.'},
+{i:'Img34.jpg',l:'Hyaline Cartilage',e:'Glassy matrix, chondrocytes in lacunae. Trachea, nose.'},
+{i:'Img35.jpg',l:'Chondrocytes/cell nests',e:'Chondrocytes in isogenous groups within lacunae.'},
+{i:'Img36.jpg',l:'Elastic Cartilage',e:'Like hyaline but with elastic fibers. Ear pinna, epiglottis.'},
+{i:'Img37.jpg',l:'Fibrocartilage',e:'Dense collagen with chondrocyte rows. Intervertebral discs.'},
+{i:'Img38.jpg',l:'Ground compact bone',e:'Dry bone: osteons, lamellae, lacunae without cells.'},
+{i:'Img39.jpg',l:'Decalcified compact bone',e:'Calcium removed, organic matrix, osteocytes visible.'},
+{i:'Img40.jpg',l:'Spongy bone',e:'Trabeculae with marrow spaces. No Haversian systems.'},
+{i:'Img41.jpg',l:'Membranous Ossification',e:'Intramembranous: bone from mesenchyme. Flat skull bones.'},
+{i:'Img42.jpg',l:'Cartilaginous Ossification',e:'Endochondral: cartilage replaced by bone. Long bones.'},
+{i:'Img43.jpg',l:'Scanning EM RBCs',e:'Biconcave disc shape under scanning electron microscope.'},
+{i:'Img44.jpg',l:'Hereditary Spherocytosis',e:'Spherical RBCs from membrane protein defect.'},
+{i:'Img45.jpg',l:'Blood film neutrophil',e:'Most common WBC. Multilobed nucleus, fine granules.'},
+{i:'Img46.jpg',l:'Blood film eosinophil',e:'Bilobed nucleus, red/orange granules. Parasites, allergies.'},
+{i:'Img47.jpg',l:'Eosinophil and Neutrophil',e:'Eosinophil: bilobed+red. Neutrophil: multilobed+fine.'},
+{i:'Img48.jpg',l:'Blood film basophil',e:'Rarest WBC. Dark blue granules obscuring nucleus.'},
+{i:'Img49.jpg',l:'Two adjacent cell membranes',e:'EM: trilaminar membranes with intercellular space.'},
+{i:'Img50.jpg',l:'EM mitochondria',e:'Double membrane, cristae. ATP production powerhouse.'},
+{i:'Img51.jpg',l:'EM rER',e:'Flattened cisternae with ribosomes. Protein synthesis.'},
+{i:'Img52.jpg',l:'EM sER',e:'Tubular network, no ribosomes. Lipid synthesis.'},
+{i:'Img53.jpg',l:'Golgi in plasma cell',e:'Negative Golgi image for antibody secretion.'},
+{i:'Img54.jpg',l:'Golgi in nerve cell',e:'Golgi for protein and neurotransmitter processing.'},
+{i:'Img55.jpg',l:'Golgi in secretory cell',e:'Prominent Golgi for protein packaging.'},
+{i:'Img56.jpg',l:'Golgi',e:'Flattened cisternae stack. Modifies, sorts, packages proteins.'},
+{i:'Img57.jpg',l:'1ry and 2ry Lysosomes',e:'Primary: from Golgi. Secondary: actively digesting.'},
+{i:'Img58.jpg',l:'Heterochromatic nucleus',e:'Dense dark chromatin. Inactive. Resting cells.'},
+{i:'Img59.jpg',l:'Euchromatic nucleus',e:'Light dispersed chromatin. Active. Synthesizing cells.'},
+{i:'Img60.jpg',l:'Simple squamous epithelium',e:'Single flat layer. Endothelium, mesothelium. Diffusion.'},
+{i:'Img61.jpg',l:'Simple cuboidal epithelium',e:'Single cube layer. Kidney tubules, thyroid.'},
+{i:'Img62.jpg',l:'Simple columnar epithelium',e:'Single tall layer. GI tract. Absorption, secretion.'},
+{i:'Img63.jpg',l:'Pseudostratified columnar ciliated epithelium',e:'All cells touch BM. Trachea respiratory epithelium.'},
+{i:'Img64.jpg',l:'Non-keratinized stratified squamous',e:'Multiple layers, nucleated surface. Oral cavity, esophagus.'},
+{i:'Img65.jpg',l:'Keratinized stratified squamous',e:'Dead keratinized surface. Skin epidermis.'},
+{i:'Img66.jpg',l:'Transitional epithelium',e:'Stretches. Dome cells. Urinary bladder, ureter.'},
+{i:'Img67.jpg',l:'Areolar / loose CT',e:'Loose collagen+elastic fibers. Under epithelia.'},
+{i:'Img68.jpg',l:'White adipose CT',e:'Unilocular fat, peripheral nucleus, single lipid droplet.'}
 ];
-var Q=[],C=0,S=0,CC=0,WC=0,A=[],AN=false,PN='',STK=0;
-var TO=false,TS=0,TI=null;
+var Q=[],C=0,S=0,CC=0,WC=0,A=[],AN=false,PN='',STK=0,TO=false,TS=0,TI=null;
 var THS=[{bg:'#0a0e1a',pri:'#6366f1',pri2:'#a855f7'},{bg:'#0f1a0f',pri:'#22c55e',pri2:'#10b981'},{bg:'#1a0a1a',pri:'#d946ef',pri2:'#a855f7'},{bg:'#0a1a1a',pri:'#06b6d4',pri2:'#0ea5e9'}];var TH=0;
 function initDNA(){var s1=document.getElementById('ds1');var s2=document.getElementById('ds2');for(var i=0;i<20;i++){var d=document.createElement('div');d.className='dna-dot';d.style.top=(i*5)+'%';d.style.animationDelay=(i*.4)+'s';s1.appendChild(d);var d2=document.createElement('div');d2.className='dna-dot dna-dot2';d2.style.top=(i*5)+'%';d2.style.animationDelay=(i*.4+.2)+'s';d2.style.animationDirection='reverse';s1.appendChild(d2);var d3=document.createElement('div');d3.className='dna-dot';d3.style.top=(i*5+2.5)+'%';d3.style.animationDelay=(i*.4+.3)+'s';s2.appendChild(d3)}}
 initDNA();showLB('lbList');
@@ -280,13 +269,13 @@ function fs(){if(!document.fullscreenElement){document.documentElement.requestFu
 function sh(a){for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t}return a}
 function cf(){var co=['#6366f1','#a855f7','#22c55e','#f59e0b','#ec4899','#06b6d4'];for(var i=0;i<25;i++){var c=document.createElement('div');c.className='conf';c.style.left=Math.random()*100+'vw';var sz=Math.random()*9+4;c.style.width=sz+'px';c.style.height=sz+'px';c.style.background=co[Math.floor(Math.random()*co.length)];c.style.borderRadius=Math.random()>.5?'50%':'3px';c.style.animationDuration=(Math.random()*2+2)+'s';c.style.animationDelay=(Math.random()*.4)+'s';document.body.appendChild(c);setTimeout(function(){c.remove()},4500)}}
 function emr(){var em=['🔬','🧬','🧪','🏆','⭐','🎉','💯','✨'];for(var i=0;i<20;i++){var e=document.createElement('div');e.className='emoji-rain';e.textContent=em[Math.floor(Math.random()*em.length)];e.style.left=Math.random()*100+'vw';e.style.animationDuration=(Math.random()*3+3)+'s';e.style.animationDelay=(Math.random()*2)+'s';document.body.appendChild(e);setTimeout(function(){e.remove()},7000)}}
-function getLB(){try{return JSON.parse(localStorage.getItem('hq_lb3')||'[]')}catch(e){return[]}}
-function saveLB(n,s,t){var lb=getLB();lb.push({n:n,s:s,t:t,p:Math.round(s/t*100),d:new Date().toLocaleDateString()});lb.sort(function(a,b){return b.p-a.p||b.s-a.s});if(lb.length>10)lb=lb.slice(0,10);localStorage.setItem('hq_lb3',JSON.stringify(lb))}
+function getLB(){try{return JSON.parse(localStorage.getItem('hq_lb4')||'[]')}catch(e){return[]}}
+function saveLB(n,s,t){var lb=getLB();lb.push({n:n,s:s,t:t,p:Math.round(s/t*100),d:new Date().toLocaleDateString()});lb.sort(function(a,b){return b.p-a.p||b.s-a.s});if(lb.length>10)lb=lb.slice(0,10);localStorage.setItem('hq_lb4',JSON.stringify(lb))}
 function showLB(id){var lb=getLB();var el=document.getElementById(id);if(!el)return;if(!lb.length){el.innerHTML='<div class="lb-empty">No scores yet. Be the first! 🏆</div>';return}var h='';var top=Math.min(lb.length,5);for(var i=0;i<top;i++){var r=i===0?'g':i===1?'s':i===2?'b':'x';var md=i===0?'🥇':i===1?'🥈':i===2?'🥉':'';h+='<div class="lb-item"><div class="lb-rank '+r+'">'+(md||(i+1))+'</div><div class="lb-name">'+lb[i].n+'</div><div class="lb-score">'+lb[i].p+'%</div></div>'}el.innerHTML=h}
 function go(){PN=document.getElementById('nameIn').value.trim();if(!PN){document.getElementById('nameErr').style.display='block';document.getElementById('nameIn').focus();return}document.getElementById('nameErr').style.display='none';document.getElementById('pName').textContent=PN;var al=DA.map(function(x){return x.l});Q=[];var sd=DA.slice();sh(sd);for(var k=0;k<sd.length;k++){var it=sd[k];var co=it.l;var wr=al.filter(function(x){return x!==co});sh(wr);wr=wr.slice(0,3);var op=wr.concat([co]);sh(op);Q.push({src:U+it.i,l:co,e:it.e,o:op,ci:op.indexOf(co)})}C=0;S=0;CC=0;WC=0;A=[];STK=0;document.getElementById('H').className='hide';document.getElementById('G').className='';ld()}
-function ld(){AN=false;var q=Q[C];document.getElementById('qn').textContent=C+1;document.getElementById('pf').style.width=(C/Q.length*100)+'%';document.getElementById('s1').textContent=S;document.getElementById('s2').textContent=CC;document.getElementById('s3').textContent=WC;document.getElementById('qi').src=q.src;document.getElementById('tb1').classList.remove('off');document.getElementById('ibg').textContent='🔍 Identify';document.getElementById('ibg').style.background='rgba(10,14,26,.75)';document.getElementById('stk').innerHTML=STK>=2?'<span class="streak-badge">🔥'+STK+'</span>':'';var qc=document.getElementById('QC');qc.classList.remove('si');void qc.offsetHeight;qc.classList.add('si');var od=document.getElementById('op');od.innerHTML='';var lt=['A','B','C','D'];for(var i=0;i<q.o.length;i++){var b=document.createElement('button');b.className='ob';b.innerHTML='<span class="ol">'+lt[i]+'</span><span>'+q.o[i]+'</span>';b.setAttribute('data-i',i);b.onclick=function(){pk(parseInt(this.getAttribute('data-i')))};od.appendChild(b)}document.getElementById('fb').className='hide';document.getElementById('nb').className='nbtn hide'}
-function pk(idx){if(AN)return;AN=true;var q=Q[C];var ok=idx===q.ci;if(ok){S++;CC++;STK++;cf();if(STK>=3)cf()}else{WC++;STK=0;if(navigator.vibrate)navigator.vibrate([100,50,100])}document.getElementById('tb1').classList.add('off');document.getElementById('ibg').textContent='✅ '+q.l;document.getElementById('ibg').style.background='rgba(34,197,94,.85)';document.getElementById('s1').textContent=S;document.getElementById('s2').textContent=CC;document.getElementById('s3').textContent=WC;document.getElementById('stk').innerHTML=STK>=2?'<span class="streak-badge">🔥'+STK+'</span>':'';var bs=document.querySelectorAll('.ob');for(var i=0;i<bs.length;i++){bs[i].disabled=true;if(i===q.ci)bs[i].classList.add('ok');if(i===idx&&!ok)bs[i].classList.add('no')}var f=document.getElementById('fb');f.className='fb '+(ok?'fok':'fno');f.innerHTML='<h4>'+(ok?'✅ Correct!':'❌ Incorrect')+'</h4><p class="al">'+q.l+'</p><p>'+q.e+'</p>';A.push({l:q.l,s:q.o[idx],ok:ok,src:q.src,e:q.e});var nb=document.getElementById('nb');nb.className='nbtn';nb.textContent=C+1>=Q.length?'📊 View Results':'Next Question →'}
-function nx(){var qc=document.getElementById('QC');qc.classList.remove('si');qc.classList.add('so');setTimeout(function(){qc.classList.remove('so');C++;if(C>=Q.length){rs()}else{ld()}},300)}
+function ld(){AN=false;var q=Q[C];document.getElementById('qn').textContent=C+1;document.getElementById('pf').style.width=(C/Q.length*100)+'%';document.getElementById('s1').textContent=S;document.getElementById('s2').textContent=CC;document.getElementById('s3').textContent=WC;var img=document.getElementById('qi');img.src=q.src;img.className='blurred';document.getElementById('ibg').textContent='🔍 Identify';document.getElementById('ibg').style.background='rgba(10,14,26,.75)';document.getElementById('stk').innerHTML=STK>=2?'<span class="streak-badge">🔥'+STK+'</span>':'';var od=document.getElementById('op');od.innerHTML='';var lt=['A','B','C','D'];for(var i=0;i<q.o.length;i++){var b=document.createElement('button');b.className='ob';b.innerHTML='<span class="ol">'+lt[i]+'</span><span>'+q.o[i]+'</span>';b.setAttribute('data-i',i);b.onclick=function(){pk(parseInt(this.getAttribute('data-i')))};od.appendChild(b)}document.getElementById('fb').className='hide';document.getElementById('nb').className='nbtn hide'}
+function pk(idx){if(AN)return;AN=true;var q=Q[C];var ok=idx===q.ci;if(ok){S++;CC++;STK++;cf();if(STK>=3)cf()}else{WC++;STK=0;if(navigator.vibrate)navigator.vibrate([100,50,100])}document.getElementById('qi').className='clear';document.getElementById('ibg').textContent='✅ '+q.l;document.getElementById('ibg').style.background='rgba(34,197,94,.85)';document.getElementById('s1').textContent=S;document.getElementById('s2').textContent=CC;document.getElementById('s3').textContent=WC;document.getElementById('stk').innerHTML=STK>=2?'<span class="streak-badge">🔥'+STK+'</span>':'';var bs=document.querySelectorAll('.ob');for(var i=0;i<bs.length;i++){bs[i].disabled=true;if(i===q.ci)bs[i].classList.add('ok');if(i===idx&&!ok)bs[i].classList.add('no')}var f=document.getElementById('fb');f.className='fb '+(ok?'fok':'fno');f.innerHTML='<h4>'+(ok?'✅ Correct!':'❌ Incorrect')+'</h4><p class="al">'+q.l+'</p><p>'+q.e+'</p>';A.push({l:q.l,s:q.o[idx],ok:ok,src:q.src,e:q.e});var nb=document.getElementById('nb');nb.className='nbtn';nb.textContent=C+1>=Q.length?'📊 View Results':'Next Question →'}
+function nx(){C++;if(C>=Q.length){rs()}else{ld()}}
 function rs(){if(TI)clearInterval(TI);saveLB(PN,CC,Q.length);document.getElementById('G').className='hide';document.getElementById('R').className='';document.getElementById('rName').textContent=PN;var t=Q.length;var p=Math.round(CC/t*100);document.getElementById('fsc').textContent=p+'%';document.getElementById('r1').textContent=t;document.getElementById('r2').textContent=CC;document.getElementById('r3').textContent=WC;var m=document.getElementById('ms');if(p>=80){m.textContent='🏆 Excellent!';m.style.color='var(--ok)';cf();cf();emr()}else if(p>=60){m.textContent='👍 Good job!';m.style.color='var(--pri)';cf()}else if(p>=40){m.textContent='📚 Keep studying!';m.style.color='#f59e0b'}else{m.textContent='💪 Try again!';m.style.color='var(--no)'}showLB('lbList2');var rv=document.getElementById('rv');rv.innerHTML='';for(var i=0;i<A.length;i++){var a=A[i];var d=document.createElement('div');d.className='ri '+(a.ok?'rok':'rno');d.innerHTML='<p><strong>Q'+(i+1)+':</strong> '+(a.ok?'✅':'❌')+' '+a.l+'</p><img src="'+a.src+'"><p>Your answer: <strong>'+a.s+'</strong></p><p>Correct: <strong style="color:var(--ok)">'+a.l+'</strong></p><p>'+a.e+'</p>';rv.appendChild(d)}}
 function sw(){var t=Q.length;var p=Math.round(CC/t*100);var tx='🔬 *HistoQuiz Pro - MUST*%0A👤 '+PN+'%0A✅ '+CC+'/'+t+' ('+p+'%)%0A%0ATry: https://karimmust.github.io/Hisoquiz';window.open('https://wa.me/?text='+tx)}
 function ss(){var t=Q.length;var p=Math.round(CC/t*100);var tx='🔬 HistoQuiz: '+PN+' - '+CC+'/'+t+' ('+p+'%)\nTry: https://karimmust.github.io/Hisoquiz';if(navigator.share){navigator.share({title:'HistoQuiz',text:tx})}else if(navigator.clipboard){navigator.clipboard.writeText(tx).then(function(){alert('✅ Copied!')})}}
